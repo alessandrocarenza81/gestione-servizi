@@ -1,0 +1,173 @@
+// Gestione Nulla Osta PA - Application Logic
+
+let statusData = [];
+const STORAGE_KEY = 'gestione_servizi_data';
+
+// Elements
+const tableBody = document.getElementById('table-body');
+const emptyState = document.getElementById('empty-state');
+const searchInput = document.getElementById('filter-search');
+const serviceFilter = document.getElementById('filter-servizio');
+const statusFilter = document.getElementById('filter-status');
+const modalOverlay = document.getElementById('modal-overlay');
+const serviceForm = document.getElementById('service-form');
+const modalTitle = document.getElementById('modal-title');
+const btnAddNew = document.getElementById('btn-add-new');
+const btnCancel = document.getElementById('btn-cancel');
+const btnCloseModal = document.getElementById('btn-close-modal');
+
+// Initial Data Load
+async function init() {
+    const savedData = localStorage.getItem(STORAGE_KEY);
+    if (savedData) {
+        statusData = JSON.parse(savedData);
+    } else {
+        try {
+            const response = await fetch('data.json');
+            statusData = await response.json();
+            saveToStorage();
+        } catch (error) {
+            console.error('Error loading initial data:', error);
+            statusData = [];
+        }
+    }
+    renderTable();
+}
+
+function saveToStorage() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(statusData));
+}
+
+function renderTable() {
+    const query = searchInput.value.toLowerCase();
+    const serviceVal = serviceFilter.value;
+    const statusVal = statusFilter.value;
+
+    const filtered = statusData.filter(item => {
+        const matchesSearch = item.ente.toLowerCase().includes(query);
+        const matchesService = serviceVal === 'all' || item.servizio.includes(serviceVal);
+        const matchesStatus = statusVal === 'all' ||
+            (statusVal === 'concluso' && item.concluso) ||
+            (statusVal === 'non-concluso' && !item.concluso);
+        return matchesSearch && matchesService && matchesStatus;
+    });
+
+    tableBody.innerHTML = '';
+
+    if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+    } else {
+        emptyState.classList.add('hidden');
+        filtered.forEach(item => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${item.ente}</td>
+                <td><span class="service-tag">${item.servizio}</span></td>
+                <td>
+                    <span class="badge ${item.concluso ? 'badge-success' : 'badge-danger'}">
+                        ${item.concluso ? 'SI' : 'NO'}
+                    </span>
+                </td>
+                <td class="actions">
+                    <button class="btn-icon action-edit" onclick="editEntry(${item.id})">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    </button>
+                    <button class="btn-icon action-delete" onclick="deleteEntry(${item.id})">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                    </button>
+                </td>
+            `;
+            tableBody.appendChild(tr);
+        });
+    }
+}
+
+// Global functions for inline onclick (simplified for this SPA)
+window.editEntry = (id) => {
+    const entry = statusData.find(d => d.id === id);
+    if (!entry) return;
+
+    document.getElementById('entry-id').value = entry.id;
+    document.getElementById('ente').value = entry.ente;
+    document.getElementById('srv-st25').checked = entry.servizio.includes('S.T.25');
+    document.getElementById('srv-sf08').checked = entry.servizio.includes('S.F.08');
+    document.getElementById('concluso').checked = entry.concluso;
+
+    modalTitle.textContent = 'Modifica Servizio';
+    openModal();
+};
+
+window.deleteEntry = (id) => {
+    if (confirm('Sei sicuro di voler eliminare questa richiesta?')) {
+        statusData = statusData.filter(d => d.id !== id);
+        saveToStorage();
+        renderTable();
+    }
+};
+
+// Modal Logic
+function openModal() {
+    modalOverlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    modalOverlay.classList.add('hidden');
+    document.body.style.overflow = '';
+    serviceForm.reset();
+    document.getElementById('entry-id').value = '';
+    document.getElementById('servizio-error').style.display = 'none';
+}
+
+btnAddNew.addEventListener('click', () => {
+    modalTitle.textContent = 'Aggiungi Servizio';
+    openModal();
+});
+
+btnCancel.addEventListener('click', closeModal);
+btnCloseModal.addEventListener('click', closeModal);
+
+serviceForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const id = document.getElementById('entry-id').value;
+    const ente = document.getElementById('ente').value;
+    const st25 = document.getElementById('srv-st25').checked;
+    const sf08 = document.getElementById('srv-sf08').checked;
+    const concluso = document.getElementById('concluso').checked;
+
+    const servizi = [];
+    if (st25) servizi.push('S.T.25');
+    if (sf08) servizi.push('S.F.08');
+
+    if (servizi.length === 0) {
+        document.getElementById('servizio-error').style.display = 'block';
+        return;
+    }
+
+    const servizioStr = servizi.join(', ');
+
+    if (id) {
+        // Update
+        const index = statusData.findIndex(d => d.id == id);
+        if (index !== -1) {
+            statusData[index] = { ...statusData[index], ente, servizio: servizioStr, concluso };
+        }
+    } else {
+        // Create
+        const newId = statusData.length > 0 ? Math.max(...statusData.map(d => d.id)) + 1 : 1;
+        statusData.push({ id: newId, ente, servizio: servizioStr, concluso });
+    }
+
+    saveToStorage();
+    renderTable();
+    closeModal();
+});
+
+// Event Listeners for Filters
+searchInput.addEventListener('input', renderTable);
+serviceFilter.addEventListener('change', renderTable);
+statusFilter.addEventListener('change', renderTable);
+
+// Start
+init();
