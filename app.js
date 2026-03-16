@@ -7,6 +7,7 @@ const STORAGE_KEY = 'gestione_servizi_data';
 const tableBody = document.getElementById('table-body');
 const emptyState = document.getElementById('empty-state');
 const searchInput = document.getElementById('filter-search');
+const categoryFilter = document.getElementById('filter-categoria');
 const serviceFilter = document.getElementById('filter-servizio');
 const statusFilter = document.getElementById('filter-status');
 const modalOverlay = document.getElementById('modal-overlay');
@@ -40,16 +41,18 @@ function saveToStorage() {
 
 function renderTable() {
     const query = searchInput.value.toLowerCase();
+    const categoryVal = categoryFilter.value;
     const serviceVal = serviceFilter.value;
     const statusVal = statusFilter.value;
 
     const filtered = statusData.filter(item => {
         const matchesSearch = item.ente.toLowerCase().includes(query);
+        const matchesCategory = categoryVal === 'all' || item.categoria === categoryVal;
         const matchesService = serviceVal === 'all' || item.servizio.includes(serviceVal);
         const matchesStatus = statusVal === 'all' ||
             (statusVal === 'concluso' && item.concluso) ||
             (statusVal === 'non-concluso' && !item.concluso);
-        return matchesSearch && matchesService && matchesStatus;
+        return matchesSearch && matchesCategory && matchesService && matchesStatus;
     });
 
     tableBody.innerHTML = '';
@@ -60,8 +63,10 @@ function renderTable() {
         emptyState.classList.add('hidden');
         filtered.forEach(item => {
             const tr = document.createElement('tr');
+            const catClass = item.categoria ? `cat-${item.categoria.toLowerCase()}` : 'cat-altro';
             tr.innerHTML = `
                 <td>${item.ente}</td>
+                <td><span class="category-tag ${catClass}">${item.categoria || 'Altro'}</span></td>
                 <td><span class="service-tag">${item.servizio}</span></td>
                 <td>
                     <span class="badge ${item.concluso ? 'badge-success' : 'badge-danger'}">
@@ -89,6 +94,7 @@ window.editEntry = (id) => {
 
     document.getElementById('entry-id').value = entry.id;
     document.getElementById('ente').value = entry.ente;
+    document.getElementById('categoria').value = entry.categoria || '';
     document.getElementById('srv-st25').checked = entry.servizio.includes('S.T.25');
     document.getElementById('srv-sf08').checked = entry.servizio.includes('S.F.08');
     document.getElementById('concluso').checked = entry.concluso;
@@ -132,6 +138,7 @@ serviceForm.addEventListener('submit', (e) => {
 
     const id = document.getElementById('entry-id').value;
     const ente = document.getElementById('ente').value;
+    const categoria = document.getElementById('categoria').value;
     const st25 = document.getElementById('srv-st25').checked;
     const sf08 = document.getElementById('srv-sf08').checked;
     const concluso = document.getElementById('concluso').checked;
@@ -151,12 +158,12 @@ serviceForm.addEventListener('submit', (e) => {
         // Update
         const index = statusData.findIndex(d => d.id == id);
         if (index !== -1) {
-            statusData[index] = { ...statusData[index], ente, servizio: servizioStr, concluso };
+            statusData[index] = { ...statusData[index], ente, categoria, servizio: servizioStr, concluso };
         }
     } else {
         // Create
         const newId = statusData.length > 0 ? Math.max(...statusData.map(d => d.id)) + 1 : 1;
-        statusData.push({ id: newId, ente, servizio: servizioStr, concluso });
+        statusData.push({ id: newId, ente, categoria, servizio: servizioStr, concluso });
     }
 
     saveToStorage();
@@ -166,6 +173,7 @@ serviceForm.addEventListener('submit', (e) => {
 
 // Event Listeners for Filters
 searchInput.addEventListener('input', renderTable);
+categoryFilter.addEventListener('change', renderTable);
 serviceFilter.addEventListener('change', renderTable);
 statusFilter.addEventListener('change', renderTable);
 

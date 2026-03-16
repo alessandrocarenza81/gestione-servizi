@@ -1,332 +1,387 @@
-﻿[
+[
     {
-        "id":  1,
-        "ente":  "Comune di Castrezzato",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 1,
+        "ente": "Comune di Castrezzato",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  2,
-        "ente":  "Comune di Alessandria",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 2,
+        "ente": "Comune di Alessandria",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  3,
-        "ente":  "Comune di Saluzzo",
-        "servizio":  "Nessun servizio specificato",
-        "concluso":  false
+        "id": 3,
+        "ente": "Comune di Saluzzo",
+        "servizio": "Nessun servizio specificato",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  4,
-        "ente":  "Comune di Noicattaro",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 4,
+        "ente": "Comune di Noicattaro",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  5,
-        "ente":  "Comune di Monteparano",
-        "servizio":  "Nessun servizio specificato",
-        "concluso":  false
+        "id": 5,
+        "ente": "Comune di Monteparano",
+        "servizio": "Nessun servizio specificato",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  6,
-        "ente":  "Comune di Monteparano",
-        "servizio":  "Nessun servizio specificato",
-        "concluso":  false
+        "id": 6,
+        "ente": "Comune di Monteparano",
+        "servizio": "Nessun servizio specificato",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  7,
-        "ente":  "Comune di Aradeo",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 7,
+        "ente": "Comune di Aradeo",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  8,
-        "ente":  "Comune di Aradeo",
-        "servizio":  "S.F.08",
-        "concluso":  true
+        "id": 8,
+        "ente": "Comune di Aradeo",
+        "servizio": "S.F.08",
+        "concluso": true,
+        "categoria": "Comune"
     },
     {
-        "id":  9,
-        "ente":  "Comune di San Ferdinando di Puglia",
-        "servizio":  "Nessun servizio specificato",
-        "concluso":  false
+        "id": 9,
+        "ente": "Comune di San Ferdinando di Puglia",
+        "servizio": "Nessun servizio specificato",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  10,
-        "ente":  "Comune di San Ferdinando di Puglia",
-        "servizio":  "Nessun servizio specificato",
-        "concluso":  false
+        "id": 10,
+        "ente": "Comune di San Ferdinando di Puglia",
+        "servizio": "Nessun servizio specificato",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  11,
-        "ente":  "Comune di Mola di Bari",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 11,
+        "ente": "Comune di Mola di Bari",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  12,
-        "ente":  "Comune di Mola di Bari",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 12,
+        "ente": "Comune di Mola di Bari",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  13,
-        "ente":  "IC Don F. Tattoli – A. De Gasperi",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 13,
+        "ente": "IC Don F. Tattoli – A. De Gasperi",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  14,
-        "ente":  "IC Don F. Tattoli – A. De Gasperi",
-        "servizio":  "S.T.25",
-        "concluso":  true
+        "id": 14,
+        "ente": "IC Don F. Tattoli – A. De Gasperi",
+        "servizio": "S.T.25",
+        "concluso": true,
+        "categoria": "Scuola"
     },
     {
-        "id":  15,
-        "ente":  "Comune di Cellamare",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 15,
+        "ente": "Comune di Cellamare",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  16,
-        "ente":  "Comune di Cellamare",
-        "servizio":  "S.T.25",
-        "concluso":  true
+        "id": 16,
+        "ente": "Comune di Cellamare",
+        "servizio": "S.T.25",
+        "concluso": true,
+        "categoria": "Comune"
     },
     {
-        "id":  17,
-        "ente":  "I.T.E.T. “DE VITI DE MARCO\" - TRIGGIANO",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 17,
+        "ente": "I.T.E.T. “DE VITI DE MARCO\" - TRIGGIANO",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  18,
-        "ente":  "I.T.E.T. “DE VITI DE MARCO\" - TRIGGIANO",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 18,
+        "ente": "I.T.E.T. “DE VITI DE MARCO\" - TRIGGIANO",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  19,
-        "ente":  "Comune di Andria",
-        "servizio":  "S.T.25",
-        "concluso":  true
+        "id": 19,
+        "ente": "Comune di Andria",
+        "servizio": "S.T.25",
+        "concluso": true,
+        "categoria": "Comune"
     },
     {
-        "id":  20,
-        "ente":  "Comune di Andria",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 20,
+        "ente": "Comune di Andria",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  21,
-        "ente":  "Comune di Rutignano 2",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 21,
+        "ente": "Comune di Rutignano 2",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  22,
-        "ente":  "Comune di Rutignano 2",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 22,
+        "ente": "Comune di Rutignano 2",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  23,
-        "ente":  "Comune di Polignano a Mare",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 23,
+        "ente": "Comune di Polignano a Mare",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  24,
-        "ente":  "Comune di Tito",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 24,
+        "ente": "Comune di Tito",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  25,
-        "ente":  "Comune di Tito",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 25,
+        "ente": "Comune di Tito",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  26,
-        "ente":  "CPIA1 BARI ALESSANDRO LEOGRANDE",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 26,
+        "ente": "CPIA1 BARI ALESSANDRO LEOGRANDE",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  27,
-        "ente":  "CPIA1 BARI ALESSANDRO LEOGRANDE",
-        "servizio":  "S.T.25",
-        "concluso":  true
+        "id": 27,
+        "ente": "CPIA1 BARI ALESSANDRO LEOGRANDE",
+        "servizio": "S.T.25",
+        "concluso": true,
+        "categoria": "Scuola"
     },
     {
-        "id":  28,
-        "ente":  "Comune di Acquaviva",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 28,
+        "ente": "Comune di Acquaviva",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  29,
-        "ente":  "Comune di Acquaviva",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 29,
+        "ente": "Comune di Acquaviva",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  30,
-        "ente":  "IC Bosco-Giovanni XXIII-Carducci di Ruvo",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 30,
+        "ente": "IC Bosco-Giovanni XXIII-Carducci di Ruvo",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  31,
-        "ente":  "IC Bosco-Giovanni XXIII-Carducci di Ruvo",
-        "servizio":  "S.T.25",
-        "concluso":  true
+        "id": 31,
+        "ente": "IC Bosco-Giovanni XXIII-Carducci di Ruvo",
+        "servizio": "S.T.25",
+        "concluso": true,
+        "categoria": "Scuola"
     },
     {
-        "id":  32,
-        "ente":  "IC Bovio-Cotugno Ruvo",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 32,
+        "ente": "IC Bovio-Cotugno Ruvo",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  33,
-        "ente":  "IC Bovio-Cotugno Ruvo",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 33,
+        "ente": "IC Bovio-Cotugno Ruvo",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  34,
-        "ente":  "Comune Buonalbergo (BN)",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 34,
+        "ente": "Comune Buonalbergo (BN)",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  35,
-        "ente":  "Comune Buonalbergo (BN)",
-        "servizio":  "S.T.25",
-        "concluso":  true
+        "id": 35,
+        "ente": "Comune Buonalbergo (BN)",
+        "servizio": "S.T.25",
+        "concluso": true,
+        "categoria": "Comune"
     },
     {
-        "id":  36,
-        "ente":  "ISTITUTO COMPRENSIVO “SM IMBRIANI L. PICCARRETA” (corato)",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 36,
+        "ente": "ISTITUTO COMPRENSIVO “SM IMBRIANI L. PICCARRETA” (corato)",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  37,
-        "ente":  "ISTITUTO COMPRENSIVO “SM IMBRIANI L. PICCARRETA” (corato)",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 37,
+        "ente": "ISTITUTO COMPRENSIVO “SM IMBRIANI L. PICCARRETA” (corato)",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  38,
-        "ente":  "Comune di Casalbore(AV)",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 38,
+        "ente": "Comune di Casalbore(AV)",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  39,
-        "ente":  "Comune di Casalbore(AV)",
-        "servizio":  "S.T.25",
-        "concluso":  true
+        "id": 39,
+        "ente": "Comune di Casalbore(AV)",
+        "servizio": "S.T.25",
+        "concluso": true,
+        "categoria": "Comune"
     },
     {
-        "id":  40,
-        "ente":  "IISS A Meucci Casarano - Lecce",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 40,
+        "ente": "IISS A Meucci Casarano - Lecce",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  41,
-        "ente":  "IISS A Meucci Casarano - Lecce",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 41,
+        "ente": "IISS A Meucci Casarano - Lecce",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Scuola"
     },
     {
-        "id":  42,
-        "ente":  "Comune di Villamaina (AV)",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 42,
+        "ente": "Comune di Villamaina (AV)",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  43,
-        "ente":  "Comune di Villamaina (AV)",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 43,
+        "ente": "Comune di Villamaina (AV)",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  44,
-        "ente":  "ASL Lecce",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 44,
+        "ente": "ASL Lecce",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Altro"
     },
     {
-        "id":  45,
-        "ente":  "ASL Lecce",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 45,
+        "ente": "ASL Lecce",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Altro"
     },
     {
-        "id":  46,
-        "ente":  "Comune di Montefalcone di Valfortore",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 46,
+        "ente": "Comune di Montefalcone di Valfortore",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  47,
-        "ente":  "Comune di Montefalcone di Valfortore",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 47,
+        "ente": "Comune di Montefalcone di Valfortore",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  48,
-        "ente":  "Comune di Melendugno",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 48,
+        "ente": "Comune di Melendugno",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  49,
-        "ente":  "Comune di Melendugno",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 49,
+        "ente": "Comune di Melendugno",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  50,
-        "ente":  "Comunità Montana Ufita - Ariano Irpino",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 50,
+        "ente": "Comunità Montana Ufita - Ariano Irpino",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Altro"
     },
     {
-        "id":  51,
-        "ente":  "Comunità Montana Ufita - Ariano Irpino",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 51,
+        "ente": "Comunità Montana Ufita - Ariano Irpino",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Altro"
     },
     {
-        "id":  52,
-        "ente":  "Comune di Benevento",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 52,
+        "ente": "Comune di Benevento",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  53,
-        "ente":  "Comune di Benevento",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 53,
+        "ente": "Comune di Benevento",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  54,
-        "ente":  "Comune di Adelfia",
-        "servizio":  "S.F.08",
-        "concluso":  false
+        "id": 54,
+        "ente": "Comune di Adelfia",
+        "servizio": "S.F.08",
+        "concluso": false,
+        "categoria": "Comune"
     },
     {
-        "id":  55,
-        "ente":  "Comune di Adelfia",
-        "servizio":  "S.T.25",
-        "concluso":  false
+        "id": 55,
+        "ente": "Comune di Adelfia",
+        "servizio": "S.T.25",
+        "concluso": false,
+        "categoria": "Comune"
     }
 ]

@@ -36,6 +36,14 @@
                 <input type="text" id="filter-search" placeholder="Cerca per ente...">
             </div>
             <div class="filter-box">
+                <select id="filter-categoria">
+                    <option value="all">Tutte le Categorie</option>
+                    <option value="Comune">Comune</option>
+                    <option value="Scuola">Scuola</option>
+                    <option value="Altro">Altro</option>
+                </select>
+            </div>
+            <div class="filter-box">
                 <select id="filter-servizio">
                     <option value="all">Tutti i Servizi</option>
                     <option value="S.T.25">S.T.25</option>
@@ -57,6 +65,7 @@
                     <thead>
                         <tr>
                             <th>Ente Richiedente</th>
+                            <th>Categoria</th>
                             <th>Servizio Richiesto</th>
                             <th>Servizio Concluso</th>
                             <th>Azioni</th>
@@ -96,6 +105,15 @@
                     <div class="form-group">
                         <label for="ente">Ente Richiedente</label>
                         <input type="text" id="ente" required placeholder="Es. Comune di Milano">
+                    </div>
+                    <div class="form-group">
+                        <label for="categoria">Categoria</label>
+                        <select id="categoria" required>
+                            <option value="" disabled selected>Seleziona categoria</option>
+                            <option value="Comune">Comune</option>
+                            <option value="Scuola">Scuola</option>
+                            <option value="Altro">Altro</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Servizio Richiesto</label>

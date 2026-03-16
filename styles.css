@@ -276,6 +276,42 @@ tbody tr:last-child td {
     color: var(--danger-text);
 }
 
+.service-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background-color: #f3f4f6;
+    border: 1px solid var(--border-color);
+}
+
+.category-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.cat-comune {
+    background-color: #e0e7ff;
+    color: #4338ca;
+}
+
+.cat-scuola {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.cat-altro {
+    background-color: #f3f4f6;
+    color: var(--text-muted);
+}
+
 .actions {
     display: flex;
     gap: 0.25rem;
@@ -366,7 +402,8 @@ tbody tr:last-child td {
     color: var(--text-main);
 }
 
-.form-group input[type="text"] {
+.form-group input[type="text"],
+.form-group select {
     width: 100%;
     padding: 0.75rem 1rem;
     border: 1px solid var(--border-color);
@@ -376,6 +413,15 @@ tbody tr:last-child td {
     transition: all 0.2s;
     font-family: inherit;
     box-shadow: var(--shadow-sm);
+    background-color: white;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
 }
 
 .checkbox-group {
