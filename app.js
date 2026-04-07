@@ -3,6 +3,10 @@
 let statusData = [];
 const STORAGE_KEY = 'gestione_servizi_data';
 
+// Sort State
+let currentSortColumn = '';
+let currentSortDirection = 1; // 1 asc, -1 desc
+
 // Elements
 const tableBody = document.getElementById('table-body');
 const emptyState = document.getElementById('empty-state');
@@ -54,6 +58,26 @@ function renderTable() {
             (statusVal === 'non-concluso' && !item.concluso);
         return matchesSearch && matchesCategory && matchesService && matchesStatus;
     });
+
+    // Ordina i dati filtrati
+    if (currentSortColumn) {
+        filtered.sort((a, b) => {
+            let valA = a[currentSortColumn];
+            let valB = b[currentSortColumn];
+
+            // Gestione dei valori null/undefined
+            if (valA == null) valA = '';
+            if (valB == null) valB = '';
+
+            // Confronto case-insensitive per le stringhe
+            if (typeof valA === 'string') valA = valA.toLowerCase();
+            if (typeof valB === 'string') valB = valB.toLowerCase();
+
+            if (valA < valB) return -1 * currentSortDirection;
+            if (valA > valB) return 1 * currentSortDirection;
+            return 0;
+        });
+    }
 
     tableBody.innerHTML = '';
 
@@ -176,6 +200,35 @@ searchInput.addEventListener('input', renderTable);
 categoryFilter.addEventListener('change', renderTable);
 serviceFilter.addEventListener('change', renderTable);
 statusFilter.addEventListener('change', renderTable);
+
+// Sorting logic
+document.querySelectorAll('th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+        const column = th.dataset.sort;
+        
+        if (currentSortColumn === column) {
+            currentSortDirection *= -1; // Toggle direction
+        } else {
+            currentSortColumn = column;
+            currentSortDirection = 1; // Default ascending
+        }
+        
+        // Reset all icons
+        document.querySelectorAll('th.sortable .sort-icon').forEach(icon => {
+            icon.innerHTML = '';
+        });
+        
+        // Set current icon
+        const icon = th.querySelector('.sort-icon');
+        if (currentSortDirection === 1) {
+            icon.innerHTML = '&#9650;'; // Triangle up
+        } else {
+            icon.innerHTML = '&#9660;'; // Triangle down
+        }
+        
+        renderTable();
+    });
+});
 
 // Start
 init();

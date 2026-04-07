@@ -237,6 +237,24 @@ th {
     border-bottom: 1px solid var(--border-color);
 }
 
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+th.sortable:hover {
+    background-color: #f3f4f6;
+    color: var(--text-main);
+}
+
+.sort-icon {
+    display: inline-block;
+    width: 1em;
+    margin-left: 0.25rem;
+    font-size: 0.85em;
+}
+
 td {
     padding: 1.25rem 1.5rem;
     font-size: 0.95rem;
