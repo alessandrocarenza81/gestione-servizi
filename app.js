@@ -3,6 +3,9 @@
 let statusData = [];
 const STORAGE_KEY = 'gestione_servizi_data';
 
+const JSONBIN_BIN_ID = '69d4a07c36566621a8879212';
+const JSONBIN_API_KEY = '$2a$10$4JjJNnELOcHncMuEUZYAV.g75Ny7tCvw2oPFQoyOtdNGNhyGAwEZ6';
+
 // Sort State
 let currentSortColumn = '';
 let currentSortDirection = 1; // 1 asc, -1 desc
@@ -10,6 +13,7 @@ let currentSortDirection = 1; // 1 asc, -1 desc
 // Elements
 const tableBody = document.getElementById('table-body');
 const emptyState = document.getElementById('empty-state');
+const syncStatus = document.getElementById('sync-status');
 const searchInput = document.getElementById('filter-search');
 const categoryFilter = document.getElementById('filter-categoria');
 const serviceFilter = document.getElementById('filter-servizio');
@@ -26,21 +30,65 @@ async function init() {
     const savedData = localStorage.getItem(STORAGE_KEY);
     if (savedData) {
         statusData = JSON.parse(savedData);
+        renderTable();
     } else {
+        // Fallback local se localStorage è vuoto all'inizio e jsonbin non è ancora caricato
         try {
             const response = await fetch('data.json');
             statusData = await response.json();
-            saveToStorage();
-        } catch (error) {
-            console.error('Error loading initial data:', error);
-            statusData = [];
-        }
+            renderTable();
+        } catch(e) { }
     }
-    renderTable();
+
+    // Caricamento Cloud Silenzioso
+    try {
+        if (syncStatus) syncStatus.classList.remove('hidden');
+        
+        const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`, {
+            headers: {
+                'X-Master-Key': JSONBIN_API_KEY
+            }
+        });
+        
+        if (response.ok) {
+            const result = await response.json();
+            statusData = result.record; // jsonbin structure
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(statusData));
+            renderTable();
+        } else {
+            console.error('Error fetching da jsonbin:', await response.text());
+        }
+    } catch (error) {
+        console.error('Network error:', error);
+    } finally {
+        if (syncStatus) syncStatus.classList.add('hidden');
+    }
 }
 
-function saveToStorage() {
+async function saveToStorage() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(statusData));
+    
+    // Save to Cloud async
+    try {
+        if (syncStatus) syncStatus.classList.remove('hidden');
+        
+        const response = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': JSONBIN_API_KEY
+            },
+            body: JSON.stringify(statusData)
+        });
+        
+        if (!response.ok) {
+            console.error('Error salvando da jsonbin:', await response.text());
+        }
+    } catch (error) {
+        console.error('Network error salvataggio jsonbin:', error);
+    } finally {
+        if (syncStatus) syncStatus.classList.add('hidden');
+    }
 }
 
 function renderTable() {
